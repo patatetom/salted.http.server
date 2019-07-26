@@ -10,3 +10,9 @@ However, when the command `python3 -m http.server` popularized by many HowTo is 
 `curl http://publicIp:8000/` will work with `http.server` but will not work with `salted.http.server` where the computed salt should be added to the url (eg. `curl http://publicIp:8000/TheComputedSaltToAddHere/`)
 
 **`salted.http.server` is primarily intended not to accidentally share data !**
+
+
+### installation
+
+- make tree directory in your local Python 3.X library with `mkdir -p ~/.local/lib/python3.X/site-packages/salted/http/`, `touch ~/.local/lib/python3.X/site-packages/salted/__init__.py` and `touch ~/.local/lib/python3.X/site-packages/salted/http/__init__.py`
+- copy `server.py` in `~/.local/lib/python3.X/site-packages/salted/http/`
