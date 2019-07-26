@@ -12,7 +12,40 @@ However, when the command `python3 -m http.server` popularized by many HowTo is 
 **`salted.http.server` is primarily intended not to accidentally share data !**
 
 
+
 ### installation
 
 - make tree directory in your local Python 3.X library with `mkdir -p ~/.local/lib/python3.X/site-packages/salted/http/`, `touch ~/.local/lib/python3.X/site-packages/salted/__init__.py` and `touch ~/.local/lib/python3.X/site-packages/salted/http/__init__.py`
 - copy `server.py` in `~/.local/lib/python3.X/site-packages/salted/http/`
+
+
+
+### usage
+
+- start `salted.http.server` :
+```console
+$ python -m salted.http.server 
+Serving HTTP on http://192.168.1.2:8000/0faa60f9887cd932343adc4300dd4f83/ ...
+```
+
+- try without salt grain :
+```console
+$ curl -q http://192.168.1.2:8000/
+curl: (52) Empty reply from server
+```
+
+- try with salt grain :
+```console
+$ curl -q http://192.168.1.2:8000/0faa60f9887cd932343adc4300dd4f83/
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Directory listing for /</title>
+</head>
+<body>
+<h1>Directory listing for /</h1>
+...
+</body>
+</html>
+```
