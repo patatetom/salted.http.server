@@ -7,9 +7,9 @@ Python and its `http.server` module are a great way to occasionally provide a tr
 However, when the command `python3 -m http.server` popularized by many HowTo is used, the tree structure is offered to all winds without restriction !
 
 `salted.http.server` adds a constraint to `http.server` that prevents the display of the offered tree structure if the salt grain is not present :
-`curl http://publicIp:8000/` will work with `http.server` but will not work with `salted.http.server` where the computed salt should be added to the url (eg. `curl http://publicIp:8000/TheComputedSaltToAddHere/`)
+`curl http://PublicIpAddr:Port/` will work with `http.server` but will not work with `salted.http.server` where the computed salt should be added to the url (eg. `curl http://PublicIpAddr:Port/ComputedSalt/`)
 
-**`salted.http.server` is primarily intended to not accidentally share data over network !**
+**`salted.http.server` is mainly intended to prevent accidental sharing of data on the network !**
 
 
 
@@ -22,7 +22,22 @@ However, when the command `python3 -m http.server` popularized by many HowTo is 
 
 ### usage
 
-- start `salted.http.server` :
+- ask help :
+```console
+$ python -m salted.http.server --help
+usage: server.py [-h] [--directory DIRECTORY] [port]
+
+positional arguments:
+  port                  Specify alternate port [default: 8000]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --directory DIRECTORY, -d DIRECTORY
+                        Specify alternative directory [default:current
+                        directory]
+```
+
+- start `salted.http.server` in current directory with default port :
 ```console
 $ python -m salted.http.server 
 Serving HTTP on http://192.168.1.2:8000/0faa60f9887cd932343adc4300dd4f83/ ...
@@ -49,3 +64,5 @@ $ curl -q http://192.168.1.2:8000/0faa60f9887cd932343adc4300dd4f83/
 </body>
 </html>
 ```
+
+**and finally share the link provided `http://PublicIpAddr:Port/ComputedSalt/` to your friends !**
