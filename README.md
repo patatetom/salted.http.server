@@ -42,7 +42,7 @@ optional arguments:
 - start `salted.http.server` in current directory with default port :
 ```console
 $ python -m salted.http.server 
-Serving HTTP on http://192.168.1.2:8000/0faa60f9887cd932343adc4300dd4f83/ ...
+Serving HTTP on http://192.168.1.2:8000/0faa60f9887cd932343adc4300dd4f83/ ... # link to share ;-)
 ```
 
 - try without salt grain :
@@ -67,4 +67,4 @@ $ curl -q http://192.168.1.2:8000/0faa60f9887cd932343adc4300dd4f83/
 </html>
 ```
 
-**and finally share the link provided `http://PublicIpAddr:Port/ComputedSalt/` to your friends !**
+**and finally share the provided link `http://PublicIpAddr:Port/ComputedSalt/` to your friends !**
