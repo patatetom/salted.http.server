@@ -8,7 +8,7 @@ class SaltedHTTPRequestHandler(SimpleHTTPRequestHandler):
             raise ValueError
         self.salt = salt
         self.salted = len(salt) - 1
-        super().__init__(*args, **kwargs)
+        super().__init__(*args, directory=directory, **kwargs)
     
     def do_GET(self):
         if not self.path.startswith(self.salt):
